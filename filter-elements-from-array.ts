@@ -1,8 +1,12 @@
-function map(arr: number[], fn: (n: number, i: number) => number): number[] {
-    let transformed: number[] = []
+type Fn = (n: number, i: number) => any
 
-    for (let i = 0; i < arr.length; i++) {
-        transformed.push(fn(arr[i], i))
+function filter(arr: number[], fn: Fn): number[] {
+     let filtered: number[] = []
+
+    for (let i=0; i<arr.length; i++) {
+        if (fn(arr[i], i)) 
+            filtered[filtered.length] = arr[i]
     }
-    return transformed
+
+    return filtered
 };
